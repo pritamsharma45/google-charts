@@ -35,7 +35,7 @@
         ]);
 
         var options = {
-          title: "Developers Performance",
+          title: "Developers Performance - Pie Chart",
           curveType: "function",
           legend: { position: "bottom" },
         };
@@ -45,6 +45,17 @@
         );
 
         chart.draw(data, options);
+
+        var bar_chart = new google.visualization.BarChart(
+          document.getElementById("barchart_values")
+        );
+        bar_chart.draw(data, {
+          title: "Developer performance - Bar chart",
+          width: 600,
+          height: 400,
+          bar: { groupWidth: "95%" },
+          legend: { position: "none" },
+        });
 
         const chartDataHeadersForTable = [
           "Developer",
@@ -81,7 +92,17 @@
     </script>
   </head>
   <body>
-    <div id="curve_chart" style="width: 900px; height: 500px"></div>
-    <div id="table_div" style="width: 900px; height: 500px; margin: 20px"></div>
+    <div
+      id="curve_chart"
+      style="width: 900px; height: 500px; margin: 20px"
+    ></div>
+    <div
+      id="barchart_values"
+      style="width: 900px; height: 500px; margin: 20px; overflow-y: auto"
+    ></div>
+    <div
+      id="table_div"
+      style="width: 900px; height: 400px; margin-top: 20px; overflow-y: auto"
+    ></div>
   </body>
 </html>
